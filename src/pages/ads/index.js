@@ -2,17 +2,32 @@ import { useEffect, useState } from "react";
 import SettingsModal from "./components/settingsModal";
 import { onValue, ref } from "firebase/database";
 import { database } from "@/config/firebase";
+import CustomTable from "./components/customTable";
+import ListModal from "./components/listModal";
 
 export default function Ads() {
   const [adsSettings, setAdsSettings] = useState(null);
+  const [adsData, setAdsData] = useState(null);
   const [modal, setModal] = useState(false);
+  const [listModal, setListModal] = useState(false);
+  const [listData, setListData] = useState(null);
   const adsRef = ref(database, "/ads");
+
+  const handleData = (data) => {
+    const normalized = Object.keys(data.data).map((key) => {
+      return {
+        id: key,
+        ...data.data[key],
+      };
+    });
+    setAdsData(normalized);
+  };
 
   useEffect(() => {
     onValue(adsRef, (snapshot) => {
       const data = snapshot.val();
-      console.log(data);
       setAdsSettings(data.options);
+      handleData(data);
     });
   }, []);
   return (
@@ -28,7 +43,13 @@ export default function Ads() {
         </button>
       </div>
       <div>
-        <p>yuhu</p>
+        <CustomTable
+          data={adsData}
+          actionPressed={(data) => {
+            setListData(data);
+            setListModal(true);
+          }}
+        />
       </div>
 
       {modal && (
@@ -38,6 +59,14 @@ export default function Ads() {
           handleClose={() => setModal(false)}
         />
       )}
+      <ListModal
+        open={listModal}
+        data={listData}
+        handleClose={() => {
+          setListModal(false);
+          setListData(null);
+        }}
+      />
     </div>
   );
 }
