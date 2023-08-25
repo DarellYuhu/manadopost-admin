@@ -4,7 +4,9 @@ export default function Layout({ children }) {
   return (
     <div className="flex flex-row">
       <Navbar />
-      <main className="flex flex-1 mx-10 my-8">{children}</main>
+      <main className="flex flex-1 px-10 py-8 h-screen overflow-y-auto">
+        {children}
+      </main>
     </div>
   );
 }

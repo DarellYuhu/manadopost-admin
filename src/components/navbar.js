@@ -12,7 +12,7 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname();
   return (
-    <div className="bg-gray-800 text-white w-64 h-screen p-4 sticky">
+    <div className="bg-gray-800 text-white w-64 h-screen p-4">
       <h1 className="text-2xl font-semibold mb-4">ManadoPost</h1>
       <div className="flex flex-col">
         {navLinks.map((link, index) => {
