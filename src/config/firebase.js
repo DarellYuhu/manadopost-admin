@@ -8,7 +8,7 @@ import { getDatabase } from "firebase/database";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDNWBpdNCsxaREZAElAvaxVhP5egPYjyNc",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "manadopost-f4a67.firebaseapp.com",
   databaseURL: "https://manadopost-f4a67.firebaseio.com",
   projectId: "manadopost-f4a67",
