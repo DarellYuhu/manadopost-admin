@@ -5,7 +5,7 @@ export default function Home() {
   const pathname = usePathname();
   return (
     <div>
-      <h1>Home</h1>
+      <h1>Welcome to Manado Post Admin Web</h1>
     </div>
   );
 }
