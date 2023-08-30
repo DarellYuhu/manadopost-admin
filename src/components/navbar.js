@@ -20,7 +20,7 @@ export default function Navbar() {
           return (
             <Link
               href={link.href}
-              key={index}
+              key={link.title}
               className={isActive && "text-yellow-300"}
             >
               {link.title}

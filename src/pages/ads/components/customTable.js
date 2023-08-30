@@ -17,11 +17,11 @@ export default function CustomTable({ data, actionPressed = () => {} }) {
         {data?.map((item, index) => {
           return (
             <TableRow key={item.id}>
-              <TableCell>{item.profile.fullName}</TableCell>
-              <TableCell>{item.profile.email}</TableCell>
-              <TableCell>{item.list.length}</TableCell>
+              <TableCell>{item.profile?.fullName}</TableCell>
+              <TableCell>{item.profile?.email}</TableCell>
+              <TableCell>{item.list?.length}</TableCell>
               <TableCell>
-                {item.list.filter((item) => item.isAllowed === true).length}
+                {item.list?.filter((item) => item.isAllowed === true).length}
               </TableCell>
               <TableCell className="relative">
                 <button
