@@ -1,6 +1,5 @@
 import {
   Modal,
-  Switch,
   Table,
   TableBody,
   TableCell,
@@ -10,10 +9,14 @@ import {
 import DetailModal from "./detailModal";
 import { useState } from "react";
 
-export default function ListModal({ open, data, handleClose = () => {} }) {
+export default function ListModal({
+  open = Boolean,
+  data,
+  handleClose = () => {},
+}) {
   const [detailData, setDetailData] = useState(null);
   return (
-    <Modal open={open}>
+    <Modal open={open} onClose={handleClose}>
       <div className="bg-slate-800 p-3 max-h-screen overflow-y-auto rounded-xl w-[80%] text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-medium">
@@ -66,7 +69,7 @@ export default function ListModal({ open, data, handleClose = () => {} }) {
         </Table>
         {detailData && (
           <DetailModal
-            open={detailData ? true : false}
+            open={detailData}
             handleClose={() => setDetailData(null)}
             data={detailData}
           />

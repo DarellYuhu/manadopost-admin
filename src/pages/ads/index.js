@@ -5,6 +5,7 @@ import { database } from "@/config/firebase";
 import CustomTable from "./components/customTable";
 import ListModal from "./components/listModal";
 import AddModal from "./components/addModal";
+import Layout from "@/components/layout";
 
 export default function Ads() {
   const [adsSettings, setAdsSettings] = useState(null);
@@ -33,51 +34,53 @@ export default function Ads() {
     });
   }, []);
   return (
-    <div className="flex flex-1 flex-col">
-      <div className="flex flex-row w-full justify-between items-center border-slate-700 border border-solid p-2 rounded-md">
-        <h1 className="text-2xl font-medium">Ads</h1>
-        <div className="flex flex-row">
-          <button
-            className="flex flex-row bg-emerald-400 hover:bg-emerald-600 items-center py-2 px-4 rounded-md"
-            onClick={() => setAddModal(!addModal)}
-          >
-            <ion-icon name="add-circle-outline"></ion-icon>
-            <p className="ml-2">Add Banner Ads</p>
-          </button>
-          <button
-            className="flex flex-row bg-cyan-400 hover:bg-cyan-600 items-center py-2 px-4 rounded-md ml-2"
-            onClick={() => setModal(true)}
-          >
-            <ion-icon name="settings"></ion-icon>
-            <p className="ml-2">Settings</p>
-          </button>
+    <Layout>
+      <div className="flex flex-1 flex-col">
+        <div className="flex flex-row w-full justify-between items-center border-slate-700 border border-solid p-2 rounded-md">
+          <h1 className="text-2xl font-medium">Ads</h1>
+          <div className="flex flex-row">
+            <button
+              className="flex flex-row bg-emerald-400 hover:bg-emerald-600 items-center py-2 px-4 rounded-md"
+              onClick={() => setAddModal(!addModal)}
+            >
+              <ion-icon name="add-circle-outline"></ion-icon>
+              <p className="ml-2">Add Banner Ads</p>
+            </button>
+            <button
+              className="flex flex-row bg-cyan-400 hover:bg-cyan-600 items-center py-2 px-4 rounded-md ml-2"
+              onClick={() => setModal(true)}
+            >
+              <ion-icon name="settings"></ion-icon>
+              <p className="ml-2">Settings</p>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <CustomTable
-        data={adsData}
-        actionPressed={(data) => {
-          setListData(data);
-          setListModal(true);
-        }}
-      />
-
-      {modal && (
-        <SettingsModal
-          data={adsSettings}
-          open={modal}
-          handleClose={() => setModal(false)}
+        <CustomTable
+          data={adsData}
+          actionPressed={(data) => {
+            setListData(data);
+            setListModal(true);
+          }}
         />
-      )}
-      <ListModal
-        open={listModal}
-        data={listData}
-        handleClose={() => {
-          setListModal(false);
-          setListData(null);
-        }}
-      />
-      <AddModal open={addModal} onClose={() => setAddModal(!addModal)} />
-    </div>
+
+        {modal && (
+          <SettingsModal
+            data={adsSettings}
+            open={modal}
+            handleClose={() => setModal(false)}
+          />
+        )}
+        <ListModal
+          open={listModal}
+          data={listData}
+          handleClose={() => {
+            setListModal(false);
+            setListData(null);
+          }}
+        />
+        <AddModal open={addModal} onClose={() => setAddModal(!addModal)} />
+      </div>
+    </Layout>
   );
 }

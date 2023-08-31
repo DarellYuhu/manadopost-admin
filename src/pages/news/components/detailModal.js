@@ -2,7 +2,11 @@ import { database } from "@/config/firebase";
 import { Modal } from "@mui/material";
 import { ref, update } from "firebase/database";
 
-export default function DetailModal({ open, handleClose = () => {}, data }) {
+export default function DetailModal({
+  open = Boolean,
+  handleClose = () => {},
+  data,
+}) {
   const handleReviewed = async () => {
     const articleRef = ref(
       database,
