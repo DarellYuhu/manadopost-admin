@@ -35,7 +35,7 @@ export default function DetailModal({
           </label>
         )}
         <img
-          src={data.image}
+          src={data?.image}
           className="object-cover w-full h-56 overflow-hidden rounded-lg"
         />
         <div className="flex flex-row justify-between">
@@ -43,14 +43,14 @@ export default function DetailModal({
             <label>Title</label>
             <textarea
               className="bg-transparent p-2 h-16 mt-2 border border-neutral-300 rounded-md"
-              value={data.title}
+              value={data?.title}
             />
           </div>
           <div className="mt-6 flex flex-col w-[48%]">
             <label>Tag</label>
             <textarea
               className="bg-transparent p-2 h-16 mt-2 border border-neutral-300 rounded-md"
-              value={data.section}
+              value={data?.section}
             />
           </div>
         </div>
@@ -59,7 +59,7 @@ export default function DetailModal({
           <label>Content</label>
           <textarea
             className="bg-transparent p-2 h-60 mt-2 border border-neutral-300 rounded-md"
-            value={data.content}
+            value={data?.content}
           />
         </div>
         <button
