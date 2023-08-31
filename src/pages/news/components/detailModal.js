@@ -29,7 +29,7 @@ export default function DetailModal({
         >
           <ion-icon name="close-circle-outline"></ion-icon>
         </button>
-        {data.reviewed && (
+        {data?.reviewed && (
           <label className="absolute left-5 top-5 p-2 border border-green-500 rounded-md">
             Reviewed
           </label>
