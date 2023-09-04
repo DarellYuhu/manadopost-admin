@@ -9,7 +9,6 @@ export default function Document() {
         <Main />
         <NextScript />
       </body>
-      <Script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></Script>
     </Html>
   );
 }
