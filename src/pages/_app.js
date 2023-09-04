@@ -5,7 +5,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Component {...pageProps} />
-      <Script src="https://unpkg.com/ionicons@latest/dist/ionicons.js" />
+      <Script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></Script>
     </>
   );
 }
