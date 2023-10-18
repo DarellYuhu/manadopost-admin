@@ -36,13 +36,13 @@ export default function Marketplace() {
               <ion-icon name="add-circle-outline"></ion-icon>
               <p className="ml-2">Add Marketplace Ads</p>
             </button>
-            <button
+            {/* <button
               className="flex flex-row bg-cyan-400 hover:bg-cyan-600 items-center py-2 px-4 rounded-md "
               onClick={() => setSettingModal(true)}
             >
               <ion-icon name="settings"></ion-icon>
               <p className="ml-2">Settings</p>
-            </button>
+            </button> */}
           </div>
         </div>
 
