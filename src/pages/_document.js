@@ -8,7 +8,7 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        <Script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></Script>
+        <Script src="https://unpkg.com/ionicons@latest/dist/ionicons.js" />
       </body>
     </Html>
   );
